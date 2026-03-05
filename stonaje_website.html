@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stonaje Innovations — Stone Age Minerals for Modern Life</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #0f0f0f;
+    --stone: #2a2520;
+    --mineral: #8B7355;
+    --salt: #f0ece4;
+    --water: #c8dde8;
+    --deep: #1a3a4a;
+    --gold: #c9a84c;
+    --text: #e8e4dc;
+    --muted: #9a9088;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--obsidian);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(15,15,15,0.95), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--salt);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 4rem 4rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(26,58,74,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(139,115,85,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(201,168,76,0.08) 0%, transparent 40%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(139,115,85,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,115,85,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--salt);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--water);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 2.5rem;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: -1;
+  }
+
+  .hero-cta:hover {
+    color: var(--obsidian);
+  }
+
+  .hero-cta:hover::before {
+    transform: translateX(0);
+  }
+
+  .hero-badges {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    text-align: center;
+  }
+
+  .badge-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .badge-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--salt);
+    letter-spacing: 0.05em;
+  }
+
+  /* SECTION COMMON */
+  section {
+    padding: 7rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--salt);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 600px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(139,115,85,0.3), transparent);
+    margin: 0 4rem;
+    width: calc(100% - 8rem);
+  }
+
+  /* SCIENCE SECTION */
+  .science {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .science-visual {
+    position: relative;
+    height: 400px;
+  }
+
+  .mineral-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate linear infinite;
+  }
+
+  .ring-1 {
+    width: 280px; height: 280px;
+    border-color: rgba(201,168,76,0.2);
+    animation-duration: 30s;
+  }
+
+  .ring-2 {
+    width: 200px; height: 200px;
+    border-color: rgba(200,221,232,0.2);
+    animation-duration: 20s;
+    animation-direction: reverse;
+  }
+
+  .ring-3 {
+    width: 120px; height: 120px;
+    border-color: rgba(139,115,85,0.3);
+    animation-duration: 15s;
+  }
+
+  .ring-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .ring-center-symbol {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--water);
+    font-style: italic;
+  }
+
+  .ring-center-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  .mineral-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+  }
+
+  .dot-ca { background: var(--gold); transform: translate(-50%, -50%) translateY(-140px); }
+  .dot-mg { background: var(--water); transform: translate(-50%, -50%) translateX(140px); }
+  .dot-k { background: #a8c5a0; transform: translate(-50%, -50%) translateY(140px); }
+  .dot-hco3 { background: #c4a0c0; transform: translate(-50%, -50%) translateX(-140px); }
+
+  .dot-label {
+    position: absolute;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  @keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  /* PRODUCTS */
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+  }
+
+  .product-card {
+    position: relative;
+    padding: 3.5rem;
+    background: var(--stone);
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+
+  .product-card:hover {
+    background: #332d28;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s;
+  }
+
+  .product-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .product-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.1);
+    position: absolute;
+    top: 2rem; right: 2.5rem;
+    line-height: 1;
+  }
+
+  .product-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--salt);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .product-desc {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-specs {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .spec {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--water);
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(200,221,232,0.2);
+  }
+
+  /* B2B SECTION */
+  .b2b {
+    background: var(--stone);
+    max-width: 100%;
+  }
+
+  .b2b-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .b2b-segments {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-top: 2rem;
+  }
+
+  .segment {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(139,115,85,0.15);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: padding-left 0.3s;
+    cursor: default;
+  }
+
+  .segment:hover {
+    padding-left: 1rem;
+  }
+
+  .segment-icon {
+    font-size: 1.2rem;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  .segment-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--salt);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .segment-desc {
+    font-size: 0.775rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* SCIENCE CREDENTIALS */
+  .credentials {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+  }
+
+  .credential-card {
+    padding: 2.5rem;
+    background: rgba(42,37,32,0.5);
+    border: 1px solid rgba(139,115,85,0.1);
+    transition: border-color 0.3s;
+  }
+
+  .credential-card:hover {
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .credential-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .credential-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--salt);
+    margin-bottom: 0.75rem;
+  }
+
+  .credential-text {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* PHILOSOPHY */
+  .philosophy {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .philosophy-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--salt);
+    line-height: 1.5;
+    margin: 2rem 0;
+  }
+
+  .philosophy-source {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--deep);
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-details {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .contact-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .contact-value {
+    font-size: 0.9rem;
+    color: var(--salt);
+  }
+
+  .contact-value a {
+    color: var(--salt);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-value a:hover {
+    color: var(--gold);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(139,115,85,0.2);
+    padding: 0.8rem 1rem;
+    color: var(--salt);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-input:focus {
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .form-input::placeholder {
+    color: rgba(154,144,136,0.4);
+  }
+
+  textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-submit {
+    align-self: flex-start;
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .form-submit:hover {
+    background: var(--gold);
+    color: var(--obsidian);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(139,115,85,0.15);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(154,144,136,0.5);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-badges {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer-badge {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(154,144,136,0.5);
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(139,115,85,0.15);
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 2rem; }
+    .hero { padding: 6rem 2rem 3rem; }
+    .science { grid-template-columns: 1fr; gap: 3rem; }
+    .science-visual { height: 280px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .b2b-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .credentials-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .hero-badges { gap: 1.5rem; }
+    .divider { margin: 0 2rem; width: calc(100% - 4rem); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">STON<span>A</span>JE</a>
+  <ul class="nav-links">
+    <li><a href="#science">Science</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#b2b">Partnerships</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content fade-in visible">
+    <div class="hero-eyebrow">Stone Age Science · Modern Life</div>
+    <h1 class="hero-title">
+      Water the way<br><em>nature intended</em>
+    </h1>
+    <p class="hero-subtitle">
+      For millions of years, humans drank water rich in calcium, magnesium, potassium and bicarbonates — minerals leached from rock over centuries. Modern RO purification removes them all in seconds. We put them back.
+    </p>
+    <a href="#products" class="hero-cta">Discover Our Technology →</a>
+    <div class="hero-badges">
+      <div class="badge">
+        <div class="badge-label">Recognition</div>
+        <div class="badge-value">DPIIT Startup India</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">Technology</div>
+        <div class="badge-value">CSIR Licensed Technology</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">Category</div>
+        <div class="badge-value">Health & Wellness</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">Origin</div>
+        <div class="badge-value">Himachal Pradesh, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SCIENCE -->
+<section id="science">
+  <div class="science fade-in">
+    <div class="science-text">
+      <div class="section-label">The Science</div>
+      <h2 class="section-title">Stone Age minerals.<br>Modern formulation.</h2>
+      <p class="section-body">
+        Our ancestors' diet delivered abundant potassium, magnesium, calcium and bicarbonate — the alkaline mineral salts that human biology evolved with over millions of years. Contemporary diets and RO-purified water have systematically reversed this. The result is a chronic, low-grade mineral deficit that accumulates silently with age.
+      </p>
+      <br>
+      <p class="section-body">
+        Stonaje holds an exclusive technology license from CSIR-CSMCRI (Patent IN309175) for a patented natural mineral fortification process — the Dry Sea Mix technology. Solar-evaporated seawater fractions are blended to produce a full-spectrum mineral salt containing calcium, magnesium, potassium, sulphate and bicarbonate in naturally balanced ratios. Zero synthetic chemicals. Zero excess sodium.
+      </p>
+    </div>
+    <div class="science-visual">
+      <div class="mineral-ring ring-1"></div>
+      <div class="mineral-ring ring-2"></div>
+      <div class="mineral-ring ring-3"></div>
+      <div class="mineral-dot dot-ca"></div>
+      <div class="mineral-dot dot-mg"></div>
+      <div class="mineral-dot dot-k"></div>
+      <div class="mineral-dot dot-hco3"></div>
+      <div class="ring-center">
+        <div class="ring-center-symbol">H₂O</div>
+        <div class="ring-center-text">Restored</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUCTS -->
+<section id="products" style="padding-bottom: 0;">
+  <div style="max-width: 1200px; margin: 0 auto;" class="fade-in">
+    <div class="section-label">Our Products</div>
+    <h2 class="section-title">Two platforms.<br>One mineral science.</h2>
+  </div>
+</section>
+
+<div class="products-grid fade-in">
+  <div class="product-card">
+    <div class="product-number">01</div>
+    <div class="product-tag">Consumer · Premium Mixer</div>
+    <h3 class="product-name">Stonaje<br>Mineral Club</h3>
+    <p class="product-desc">
+      India's first mineral replenishment mixer. A naturally carbonated bicarbonate mineral soda — zero sodium, zero chloride — formulated specifically as a premium spirits companion. Delivers therapeutic levels of magnesium, calcium and potassium bicarbonates precisely when alcohol depletes them most. Crystal clear. Taste-neutral. Scientifically designed to complement, never compete with, the character of fine whisky or vodka.
+    </p>
+    <div class="product-specs">
+      <span class="spec">Zero Sodium</span>
+      <span class="spec">Naturally Carbonated</span>
+      <span class="spec">Bicarbonate Rich</span>
+      <span class="spec">Spirits Mixer</span>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-number">02</div>
+    <div class="product-tag">Consumer · Daily Wellness</div>
+    <h3 class="product-name">Deep Sea<br>Mineral Drops</h3>
+    <p class="product-desc">
+      Four drops transforms a glass of RO water into alkaline mineral water with a pH of 8.5–9.0. Formulated from the Deep Sea natural mineral blend — calcium, magnesium, potassium, sulphate and bicarbonate in ICMR RDA-compliant ratios. Zero sodium. Travel-friendly. The simplest daily correction for the mineral gap created by modern water purification. Backed by CSIR-licensed seawater fractionation technology.
+    </p>
+    <div class="product-specs">
+      <span class="spec">pH 8.5–9.0</span>
+      <span class="spec">ICMR Compliant</span>
+      <span class="spec">Zero Sodium</span>
+      <span class="spec">4 Drops Per Glass</span>
+    </div>
+  </div>
+</div>
+
+<!-- B2B -->
+<section id="b2b" class="b2b fade-in">
+  <div class="b2b-inner">
+    <div>
+      <div class="section-label">B2B Partnerships</div>
+      <h2 class="section-title">Supply the<br>science of minerals.</h2>
+      <p class="section-body">
+        The Deep Sea natural mineral blend is available as a B2B ingredient supply for packaged water brands, hospitality groups, healthcare institutions and food manufacturers. CSIR-patented, 100% natural, cost-effective at scale. Replace expensive synthetic mineral inputs with a single seawater-derived blend that delivers the complete mineral profile of natural spring water.
+      </p>
+      <br>
+      <p class="section-body" style="color: var(--gold); font-size: 0.85rem;">
+        We are currently seeking anchor B2B partners across packaged water, premium hospitality and institutional segments.
+      </p>
+    </div>
+    <div>
+      <div class="b2b-segments">
+        <div class="segment">
+          <div class="segment-icon">💧</div>
+          <div>
+            <div class="segment-name">Packaged Water Brands</div>
+            <div class="segment-desc">Natural mineral fortification for RO-purified water. Replace synthetic single-mineral inputs with a complete natural blend.</div>
+          </div>
+        </div>
+        <div class="segment">
+          <div class="segment-icon">🏨</div>
+          <div>
+            <div class="segment-name">Hotels & Resorts</div>
+            <div class="segment-desc">Premium naturally mineralised water for in-room and restaurant service. Himalayan wellness positioning.</div>
+          </div>
+        </div>
+        <div class="segment">
+          <div class="segment-icon">🏥</div>
+          <div>
+            <div class="segment-name">Hospitals & Healthcare</div>
+            <div class="segment-desc">Clinical nutrition compliance for patient water quality. ICMR guideline aligned mineral composition.</div>
+          </div>
+        </div>
+        <div class="segment">
+          <div class="segment-icon">🏢</div>
+          <div>
+            <div class="segment-name">Corporate & Institutional</div>
+            <div class="segment-desc">Central RO system remineralisation for campuses, schools and large facilities.</div>
+          </div>
+        </div>
+        <div class="segment">
+          <div class="segment-icon">🌊</div>
+          <div>
+            <div class="segment-name">Desalination Plants</div>
+            <div class="segment-desc">Post-treatment remineralisation at scale. Natural alternative to synthetic mineral dosing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials">
+  <div class="credentials fade-in">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Science you can verify.</h2>
+    <div class="credentials-grid">
+      <div class="credential-card">
+        <div class="credential-icon">⚗️</div>
+        <div class="credential-title">CSIR-CSMCRI Technology License</div>
+        <div class="credential-text">Exclusive license for the Dry Sea Mix natural mineral fortification process. Licensed from India's premier salt and marine chemicals research institute, Bhavnagar.</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">🏛️</div>
+        <div class="credential-title">DPIIT Startup India Recognition</div>
+        <div class="credential-text">Recognised by the Department for Promotion of Industry and Internal Trade under Healthcare & Lifesciences / Health & Wellness. Certificate DIPP100421, valid 2032.</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">™️</div>
+        <div class="credential-title">Registered Trademark Portfolio</div>
+        <div class="credential-text">DEEP SEA registered in Class 30 (salt, seasonings). STONAJE registered in Class 42 (scientific R&D services). MINERALOGY applied in Class 32 (mineral waters, beverages).</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">📋</div>
+        <div class="credential-title">FSSAI Licensed Manufacturer</div>
+        <div class="credential-text">Food Safety and Standards Authority of India licensed food manufacturer, wholesaler and retailer. Himachal Pradesh State License.</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">🔬</div>
+        <div class="credential-title">Peer-Reviewed Scientific Foundation</div>
+        <div class="credential-text">Product science grounded in published research including Frassetto et al. (2001) — the landmark UCSF study on Stone Age diet, potassium bicarbonate and chronic low-grade metabolic acidosis.</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">🏔️</div>
+        <div class="credential-title">Incubated in Himachal Pradesh</div>
+        <div class="credential-text">Developed under the HP Startup Scheme incubation programme. Registered and operating from Palampur, Kangra — in the heart of the Himalayan wellness corridor.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PHILOSOPHY -->
+<section>
+  <div class="philosophy fade-in">
+    <div class="section-label">Our Philosophy</div>
+    <blockquote class="philosophy-quote">
+      "Contemporary humans are Stone Agers habitually ingesting a diet discordant with their genetically determined metabolic machinery."
+    </blockquote>
+    <div class="philosophy-source">— Frassetto et al., European Journal of Nutrition, 2001 · UCSF</div>
+    <br><br>
+    <p class="section-body" style="margin: 0 auto; text-align: center;">
+      Stonaje exists to close the gap between what our Stone Age biology requires and what the modern world delivers. Not with synthetic supplements. With the minerals that seawater, rock and time have always provided — restored to the water we drink, every day.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="contact-inner fade-in">
+    <div>
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Partnership &<br>enquiries.</h2>
+      <p class="section-body">
+        We are actively seeking B2B supply partners, distribution partners, and institutional clients across India. If you are a packaged water brand, hospitality group, healthcare institution or investor — we would welcome a conversation.
+      </p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:info@stonaje.com">info@stonaje.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Registered Office</div>
+          <div class="contact-value">41/2 VPO Dhanotu, Tehsil Shahpur<br>District Kangra, Himachal Pradesh 176208</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Company</div>
+          <div class="contact-value">Stonaje Innovations Private Limited<br>CIN: U73100HP2022PTC009191</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Recognition</div>
+          <div class="contact-value">DPIIT Certificate DIPP100421</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="margin-top: 3.5rem;">Send a Message</div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organisation</label>
+          <input type="text" class="form-input" placeholder="Company or institution">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-input" placeholder="Tell us about your interest or requirement"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Enquiry →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">STONAJE INNOVATIONS PVT LTD</div>
+  <div class="footer-copy">© 2026 Stonaje Innovations. All rights reserved.</div>
+  <div class="footer-badges">
+    <span class="footer-badge">DPIIT Recognised</span>
+    <span class="footer-badge">CSIR Licensed</span>
+    <span class="footer-badge">FSSAI Licensed</span>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Form handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = 'var(--gold)';
+    btn.style.color = 'var(--obsidian)';
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Smooth nav background
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) {
+      nav.style.background = 'rgba(15,15,15,0.97)';
+    } else {
+      nav.style.background = 'linear-gradient(to bottom, rgba(15,15,15,0.95), transparent)';
+    }
+  });
+</script>
+
+</body>
+</html>
